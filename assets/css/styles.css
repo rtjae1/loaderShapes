@@ -17,64 +17,78 @@ body {
   padding: 0;
 }
 
-ul {
+.container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-ul li {
-  list-style: none;
-  float: left;
-  font-size: 5em;
-  font-weight: bold;
-  /* transform: rotateY(90deg); */
-  transform-origin: left;
-  animation: animate 3s infinite;
+.square {
+  width: 80px;
+  height: 80px;
+  background: var(--secondaryColor);
+  padding: 20px;
+  box-sizing: border-box;
+  animation: square 2s infinite;
 }
 
-@keyframes animate {
+.circle {
+  width: 40px;
+  height: 40px;
+  background: var(--tertiaryColor);
+  border-radius: 50%;
+  animation: circle 2s infinite;
+}
+
+@keyframes square {
   0% {
-    opacity: 0;
-    transform: rotateY(90deg) translateX(-30px);
+    transform: rotate(0deg) scale(1) translateX(0);
+    border-radius: 0;
+    background: var(--secondaryColor);
+  }
+
+  25% {
+    transform: rotate(360deg) scale(.5) translateX(50px);
+    border-radius: 50%;
+    background: var(--tertiaryColor);
   }
 
   50% {
-    opacity: 1;
-    transform: rotateY(0deg) translateX(30px) scale(.4);
+    transform: rotate(360deg) scale(.5) translateX(0);
+    border-radius: 50%;
+    background: var(--tertiaryColor);
+  }
+
+  75% {
+    transform: rotate(360deg) scale(.5) translateX(-50px);
+    border-radius: 50%;
+    background: var(--tertiaryColor);
   }
 
   100% {
-    opacity: 0;
-    transform: rotateY(0deg);
+    transform: rotate(720deg) scale(1) translateX(0);
+    border-radius: 0%;
+    background: var(--secondaryColor);
   }
 }
 
-ul li:nth-child(1) {
-  animation-delay: 0s;
-}
+@keyframes circle {
+  0% {
+    transform: rotate(0deg) scale(.5) translateY(0);
+    border-radius: 0;
+    background: var(--tertiaryColor);
+  }
 
-ul li:nth-child(2) {
-  animation-delay: 0.2s;
-}
+  50% {
+    transform: rotate(-720deg) scale(1.5) translateY(50px);
+    border-radius: 0%;
+    background: var(--secondaryColor);
+  }
 
-ul li:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-ul li:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-ul li:nth-child(5) {
-  animation-delay: 0.8s;
-}
-
-ul li:nth-child(6) {
-  animation-delay: 1s;
-}
-
-ul li:nth-child(7) {
-  animation-delay: 1.2s;
+  100% {
+    transform: rotate(-1440deg) scale(.5) translateY(0);
+    border-radius: 50%;
+    background: var(--tertiaryColor);
+  }
 }
